@@ -10,3 +10,5 @@ function addCustomThemeFiles_1902(){
 };
 
 add_action('wp_enqueue_scripts', 'addCustomThemeFiles_1902');
+
+add_theme_support('post-thumbnails', array('post'));
