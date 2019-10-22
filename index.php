@@ -38,6 +38,8 @@
                                         <?php the_excerpt(); ?>
                                         <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
                                     </div>
+                                <?php else: ?>
+                                    <?php the_content(); ?>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>
