@@ -30,11 +30,24 @@ function register_navwalker(){
 add_action( 'after_setup_theme', 'register_navwalker' );
 
 if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
-    // File does not exist... return an error.
     return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
 } else {
-    // File exists... require it.
     require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 
 remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
+
+$customHeaderDefaults = array(
+    'width' => 1280,
+    'height' => 720,
+    'default-image' => get_template_directory_uri() . '/assests/images/water-and-rocks.jpg'
+);
+add_theme_support('custom-header', $customHeaderDefaults);
+
+register_default_headers(array (
+    'defaultImage' => array(
+        'url' => get_template_directory_uri() . '/assests/image/water-and-rocks.jpg',
+        'thumbnail_url' => get_template_directory_uri() . '/assests/image/water-and-rocks.jpg',
+        'description' => __('The default image for the custom header.', '1902Custom')
+    )
+));
