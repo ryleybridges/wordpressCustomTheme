@@ -30,22 +30,26 @@
     </nav>
     <?php endif; ?>
 
-    <?php if(has_nav_menu('side_navigation')): ?>
-        <div class="sidebar container-fluid">
-            <ul class="nav">
-                <?php
-                    wp_nav_menu( array(
-                        'theme_location' => 'side_navigation',
-                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                        'walker'          => new WP_Bootstrap_Navwalker(),
-                    ));
-                ?>
-            </ul>
-        </div>
-    <?php endif; ?>
+
 
 
     <div class="container">
+        <?php if(has_nav_menu('side_navigation')): ?>
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <?php wp_nav_menu( array(
+                        'theme_location' => 'side_navigation',
+                        'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                        'container'       => 'div',
+                        'container_class' => 'list-group',
+                        'menu_class'      => 'list-group-item',
+                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                        'walker'          => new WP_Bootstrap_Navwalker(),
+                    )); ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <?php if(have_posts()): ?>
             <?php while(have_posts()): the_post(); ?>
                 <div class="card mt-3">
