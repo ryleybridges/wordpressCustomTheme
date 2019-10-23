@@ -30,29 +30,19 @@
     </nav>
     <?php endif; ?>
 
-
-
-
     <div class="container">
-        <?php if(has_nav_menu('side_navigation')): ?>
-            <div class="row">
+        <div class="row">
+            <?php if(has_nav_menu('side_navigation')): ?>
                 <div class="col-12 col-md-3">
-                    <?php wp_nav_menu( array(
-                        'theme_location' => 'side_navigation',
-                        'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
-                        'container'       => 'div',
-                        'container_class' => 'list-group',
-                        'menu_class'      => 'list-group-item',
-                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
-                        'walker'          => new WP_Bootstrap_Navwalker(),
-                    )); ?>
+                    <div class="card h-80 mb-2 mt-2 p-2">
+                        <?php wp_nav_menu(array('theme_location' => 'side_navigation')); ?>
+                    </div>
                 </div>
-            </div>
-        <?php endif; ?>
-
+            <?php endif; ?>
+        <div class="col">
         <?php if(have_posts()): ?>
             <?php while(have_posts()): the_post(); ?>
-                <div class="card mt-3">
+                <div class="card mb-3 mt-3">
                     <div class="card-header"><?php the_title(); ?></div>
                     <div class="card-body">
 
@@ -92,8 +82,19 @@
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>
+        </div>
+        </div>
     </div>
 
+    <?php if(has_nav_menu('bottom_navigation')): ?>
+        <footer class="bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <?php wp_nav_menu(array('theme_location' => 'side_navigation'));?>
+                </div>
+            </div>
+        </footer>
+    <?php endif; ?>
     <?php wp_footer(); ?>
 </body>
 </html>

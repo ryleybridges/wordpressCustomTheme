@@ -19,6 +19,7 @@ function addCustomMenus_1902(){
     add_theme_support('menus');
     register_nav_menu('top_navigation', __('The top navigation is located at the top of each page.', '1902Custom'));
     register_nav_menu('side_navigation', __('The side navigation is located at the side of each page', '1902Custom'));
+    register_nav_menu('bottom_navigation', __('The bottom navigation is located at the bottom of each page', '1902Custom'));
 };
 
 add_action('after_setup_theme', 'addCustomMenus_1902');
