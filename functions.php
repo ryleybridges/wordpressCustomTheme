@@ -46,8 +46,10 @@ add_theme_support('custom-header', $customHeaderDefaults);
 
 register_default_headers(array (
     'defaultImage' => array(
-        'url' => get_template_directory_uri() . '/assests/image/water-and-rocks.jpg',
-        'thumbnail_url' => get_template_directory_uri() . '/assests/image/water-and-rocks.jpg',
+        'url' => get_template_directory_uri() . '/assests/images/water-and-rocks.jpg',
+        'thumbnail_url' => get_template_directory_uri() . '/assests/images/water-and-rocks.jpg',
         'description' => __('The default image for the custom header.', '1902Custom')
     )
 ));
+
+add_theme_support('wp-block-styles');
