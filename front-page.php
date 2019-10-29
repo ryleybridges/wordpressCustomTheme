@@ -23,9 +23,45 @@
             <?php while(have_posts()): the_post(); ?>
                 <?php get_template_part('templates/content', get_post_format()); ?>
             <?php endwhile; ?>
-        <?php endif; ?>
+
     </div>
+    <?php
+        $count_posts = wp_count_posts();
+        $published_posts = $count_posts->publish;
+
+        $default_posts_per_page = get_option( 'posts_per_page' );
+    ?>
+    <?php if ($published_posts > $default_posts_per_page): ?>
+        <?php
+            $args = array(
+                'type' => 'array'
+            );
+            $paginationLinks = paginate_links($args);
+        ?>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <?php foreach($paginationLinks as $link): ?>
+                    <li class="page-item">
+                        <?php echo str_replace('page-numbers', 'page-link', $link); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <?php next_posts_link( 'Next »', 0 ); ?>
+                </li>
+                <li class="page-item">
+                    <?php previous_posts_link( '« Previous' ); ?>
+                </li>
+            </ul>
+        </nav>
+
+    <?php endif; ?>
 </div>
+<?php endif; ?>
+
 
 
 <?php get_footer(); ?>
