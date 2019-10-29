@@ -4,7 +4,7 @@
         for ($i=0; $i < count($allBlocks); $i++) {
             // echo 'Block number ' . $i . ' is a ' . $allBlocks[$i]['blockName'];
             // echo '<br>';
-            if (($allBlocks[$i]['blockName'] === 'core/audio') && ($allBlocks[$i]['blockName'] === 'core/embed-spotify') && ($allBlocks[$i]['blockName'] === 'core/embed-soundcloud')) {
+            if (($allBlocks[$i]['blockName'] === 'core/audio') || ($allBlocks[$i]['blockName'] === 'core/embed-spotify') || ($allBlocks[$i]['blockName'] === 'core/embed-soundcloud')) {
                 $firstAudioBlock = $allBlocks[$i];
                 break;
             }

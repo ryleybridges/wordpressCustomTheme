@@ -4,7 +4,7 @@
         for ($i=0; $i < count($allBlocks); $i++) {
             // echo 'Block number ' . $i . ' is a ' . $allBlocks[$i]['blockName'];
             // echo '<br>';
-            if (($allBlocks[$i]['blockName'] === 'core-embed/youtube') && ()$allBlocks[$i]['blockName'] === 'core/video') && ($allBlocks[$i]['blockName'] === 'core-embed/vimeo')) {
+            if (($allBlocks[$i]['blockName'] === 'core-embed/youtube') || ()$allBlocks[$i]['blockName'] === 'core/video') || ($allBlocks[$i]['blockName'] === 'core-embed/vimeo')) {
                 $firstVideoBlock = $allBlocks[$i];
                 break;
             }
