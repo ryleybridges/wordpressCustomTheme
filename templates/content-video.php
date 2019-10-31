@@ -16,7 +16,7 @@
 ?>
 
 <div class="card ml-3 mt-2 border-warning" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card-body cardColour">
         <h5 class="card-title"><?php the_title(); ?></h5>
         <?php if($firstVideoBlock): ?>
             <div class="fullVideo">

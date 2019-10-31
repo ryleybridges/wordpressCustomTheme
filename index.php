@@ -19,7 +19,7 @@
                                 <div class="row">
 
                                     <?php if(has_post_thumbnail()): ?>
-                                        <?php if(!is_singular()): ?>
+                                    <?php if(!is_singular()): ?>
                                             <div class="col-md-2"><?php the_post_thumbnail('thumbnail'); ?></div>
                                         <?php else: ?>
                                             <div class="col-12 text-center mb-3"><?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?></div>

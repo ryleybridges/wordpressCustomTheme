@@ -16,33 +16,55 @@
             'transport' => 'refresh',
         ) );
 
+        $wp_customize->add_setting('1902_cardColour', array(
+            'default' => '#FFFFFF',
+            'transport' => 'refresh'
+        ) );
+
+        $wp_customize->add_setting('1902_mainHeaderTextColour', array(
+            'default' => '#000000',
+            'transport' => 'refresh'
+        ));
+
         $wp_customize->add_section( 'footer_info' , array(
             'title'      => __( 'Footer Info', '1902Custom' ),
             'priority'   => 35,
         ) );
 
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_backgroundColourControl', array(
-	           'label'      => __( 'Background Colour', '1902Custom' ),
-               'description' => 'Change the background colour',
-	           'section'    => 'colors',
-	           'settings'   => '1902_backgroundColour',
-           ) ) );
+            'label'      => __( 'Background Colour', '1902Custom' ),
+            'description' => 'Change the background colour',
+            'section'    => 'colors',
+            'settings'   => '1902_backgroundColour',
+        ) ) );
 
-           $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_headerFooterColour', array(
-   	           'label'      => __( 'Header Footer Colour', '1902Custom' ),
-               'description' => 'Change the header & footer colour',
-   	           'section'    => 'colors',
-   	           'settings'   => '1902_headerFooterColour',
-              ) ) );
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_headerFooterColour', array(
+            'label'      => __( 'Header Footer Colour', '1902Custom' ),
+            'description' => 'Change the header & footer colour',
+            'section'    => 'colors',
+            'settings'   => '1902_headerFooterColour',
+        ) ) );
 
-              $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_footerText', array(
-                          'label'          => __( 'Footer Text', '1902Custom' ),
-                          'section'        => 'footer_info',
-                          'settings'       => '1902_footerText',
-                          'type'           => 'text'
-                      )
-                  )
-              );
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_cardColour', array(
+            'label'      => __( 'Card Colour', '1902Custom' ),
+            'description' => 'Change the background card colour',
+            'section'    => 'colors',
+            'settings'   => '1902_cardColour',
+        ) ) );
+
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_mainHeaderTextColour', array(
+            'label'      => __( 'Main Header Text Colour', '1902Custom' ),
+            'description' => 'Change the main header text colour',
+            'section'    => 'colors',
+            'settings'   => '1902_mainHeaderTextColour',
+        ) ) );
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_footerText', array(
+            'label'          => __( 'Footer Text', '1902Custom' ),
+            'section'        => 'footer_info',
+            'settings'       => '1902_footerText',
+            'type'           => 'text'
+        ) ) );
 
     }
 
@@ -54,7 +76,9 @@
         ?>
              <style type="text/css">
                  body { background-color: <?php echo get_theme_mod('1902_backgroundColour', '#000000'); ?>; }
-                 .navColour { background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#2d3436') ?>;}
+                 .navColour { background-color: <?php echo get_theme_mod('1902_headerFooterColour', '#2d3436'); ?>; }
+                 .cardColour { background-color: <?php echo get_theme_mod('1902_cardColour', '#FFFFFF'); ?>; }
+                 .mainHeaderText { color: <?php echo get_theme_mod('1902_mainHeaderTextColour', '#000000'); ?>; }
              </style>
         <?php
     }
