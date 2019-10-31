@@ -58,6 +58,13 @@
             </ul>
         </nav>
 
+        <img src="<?php echo get_theme_mod('1902_frontPageBottomImage'); ?>" style="width: 100%">
+
+        <?php if(get_theme_mod('1902_frontPageBottomImage')): ?>
+            <h2 class="display-3 text-center"><?php echo get_theme_mod('1902_bottomImageText'); ?></h2>
+        <?php endif; ?>
+
+
     <?php endif; ?>
 </div>
 <?php endif; ?>

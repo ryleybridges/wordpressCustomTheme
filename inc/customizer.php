@@ -26,10 +26,40 @@
             'transport' => 'refresh'
         ));
 
+        $wp_customize->add_setting('1902_frontPageBottomImage', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ));
+
+        $wp_customize->add_setting('1902_bottomImageText', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ));
+
+        $wp_customize->add_setting('1902_sidebarSwitch', array(
+            'default' => 'left',
+            'transport' => 'refresh'
+        ));
+
+        $wp_customize->add_setting('1902_homePageLayout', array(
+            'default' => 'vertical',
+            'transport' => 'refresh'
+        ));
+
         $wp_customize->add_section( 'footer_info' , array(
             'title'      => __( 'Footer Info', '1902Custom' ),
             'priority'   => 35,
         ) );
+
+        $wp_customize->add_section( 'bottom_image' , array(
+            'title'      => __( 'Bottom Image', '1902Custom' ),
+            'priority'   => 68,
+        ) );
+
+        $wp_customize->add_section('layout', array(
+            'title' => __('Layout', '1902Custom'),
+            'priority' => 50
+        ));
 
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_backgroundColourControl', array(
             'label'      => __( 'Background Colour', '1902Custom' ),
@@ -65,6 +95,41 @@
             'settings'       => '1902_footerText',
             'type'           => 'text'
         ) ) );
+
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_frontPageBottomImage', array(
+            'label'          => __( 'Front Page Bottom Image', '1902Custom' ),
+            'section'        => 'bottom_image',
+            'settings'       => '1902_frontPageBottomImage'
+        ) ) );
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_bottomImageText', array(
+            'label'          => __( 'Text over top of bottom image', '1902Custom' ),
+            'section'        => 'bottom_image',
+            'settings'       => '1902_bottomImageText',
+            'type'           => 'text'
+        ) ) );
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_sidebarSwitch', array(
+            'label' => __('Switch sidebar from left to right', '1902Custom'),
+            'section' => 'layout',
+            'settings' => '1902_sidebarSwitch',
+            'type' => 'radio',
+            'choices' => array(
+                'left' => 'Left',
+                'right' => 'Right'
+            )
+        )));
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_homePageLayout', array(
+            'label' => __('Switch home page layout from square cards to horizontal cards', '1902Custom'),
+            'section' => 'layout',
+            'settings' => '1902_homePageLayout',
+            'type' => 'radio',
+            'choices' => array(
+                'vertical' => 'Vertical',
+                'horizontal' => 'Horizontal'
+            )
+        )));
 
     }
 
