@@ -52,8 +52,6 @@ register_default_headers(array (
     )
 ));
 
-add_theme_support('wp-block-styles');
-
 add_theme_support('post-formats', array('video', 'audio', 'image', 'gallery'));
 
 function add_custom_post_types(){

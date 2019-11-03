@@ -65,6 +65,39 @@
         <?php endif; ?>
 
 
+        <?php if((get_theme_mod('1902_imageCarouselUpload1')) || (get_theme_mod('1902_imageCarouselUpload2')) || (get_theme_mod('1902_imageCarouselUpload3'))): ?>
+            <div id="wpCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                        <?php if(get_theme_mod('1902_imageCarouselUpload1')): ?>
+                            <div class="carousel-item active">
+                                <img src="<?php echo get_theme_mod('1902_imageCarouselUpload1'); ?>" class="d-block w-100" alt="...">
+                            </div>
+                        <?php endif; ?>
+                        <?php if(get_theme_mod('1902_imageCarouselUpload2')): ?>
+                            <div class="carousel-item">
+                                <img src="<?php echo get_theme_mod('1902_imageCarouselUpload2'); ?>" class="d-block w-100" alt="...">
+                            </div>
+                            <?php if (!get_theme_mod('1902_imageCarouselUpload1')): ?>
+                                <div class="carousel-item active">
+                                    <img src="<?php echo get_theme_mod('1902_imageCarouselUpload2'); ?>" class="d-block w-100" alt="...">
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        <?php if(get_theme_mod('1902_imageCarouselUpload3')): ?>
+                            <div class="carousel-item">
+                                <img src="<?php echo get_theme_mod('1902_imageCarouselUpload3'); ?>" class="d-block w-100" alt="...">
+                            </div>
+                            <?php if((!get_theme_mod('1902_imageCarouselUpload2')) && (!get_theme_mod('1902_imageCarouselUpload1'))): ?>
+                            <div class="carousel-item active">
+                                <img src="<?php echo get_theme_mod('1902_imageCarouselUpload3'); ?>" class="d-block w-100" alt="...">
+                            </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+
     <?php endif; ?>
 </div>
 <?php endif; ?>

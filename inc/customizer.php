@@ -2,6 +2,7 @@
 
     function mytheme_customize_register( $wp_customize ) {
 
+        // SETTINGS
         $wp_customize->add_setting( '1902_backgroundColour' , array(
             'default'   => '#d35400',
             'transport' => 'refresh',
@@ -46,6 +47,22 @@
             'transport' => 'refresh'
         ));
 
+        $wp_customize->add_setting('1902_imageCarouselUpload1', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ));
+
+        $wp_customize->add_setting('1902_imageCarouselUpload2', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ));
+
+        $wp_customize->add_setting('1902_imageCarouselUpload3', array(
+            'default' => '',
+            'transport' => 'refresh'
+        ));
+
+        // SECTIONS
         $wp_customize->add_section( 'footer_info' , array(
             'title'      => __( 'Footer Info', '1902Custom' ),
             'priority'   => 35,
@@ -61,6 +78,12 @@
             'priority' => 50
         ));
 
+        $wp_customize->add_section('carousel', array(
+            'title' => __('Image Carousel', '1902Custom'),
+            'priority' => 52
+        ));
+
+        // CONTROLS
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, '1902_backgroundColourControl', array(
             'label'      => __( 'Background Colour', '1902Custom' ),
             'description' => 'Change the background colour',
@@ -129,6 +152,24 @@
                 'vertical' => 'Vertical',
                 'horizontal' => 'Horizontal'
             )
+        )));
+
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload1', array(
+            'label' => __('First Image Upload', '1902Custom'),
+            'section' => 'carousel',
+            'settings' => '1902_imageCarouselUpload1'
+        )));
+
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload2', array(
+            'label' => __('Second Image Upload', '1902Custom'),
+            'section' => 'carousel',
+            'settings' => '1902_imageCarouselUpload2'
+        )));
+
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload3', array(
+            'label' => __('Third Image Upload', '1902Custom'),
+            'section' => 'carousel',
+            'settings' => '1902_imageCarouselUpload3'
         )));
 
     }
