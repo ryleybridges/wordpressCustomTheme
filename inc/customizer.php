@@ -47,17 +47,20 @@
             'transport' => 'refresh'
         ));
 
-        $wp_customize->add_setting('1902_imageCarouselUpload1', array(
-            'default' => '',
-            'transport' => 'refresh'
-        ));
+        for ($i=1; $i <= 3 ; $i++) {
+            $wp_customize->add_setting('1902_imageCarouselUpload'.$i, array(
+                'default' => '',
+                'transport' => 'refresh'
+            ));
 
-        $wp_customize->add_setting('1902_imageCarouselUpload2', array(
-            'default' => '',
-            'transport' => 'refresh'
-        ));
+            $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload'.$i, array(
+                'label' => __('Image #'.$i.' Upload', '1902Custom'),
+                'section' => 'carousel',
+                'settings' => '1902_imageCarouselUpload'.$i
+            )));
+        }
 
-        $wp_customize->add_setting('1902_imageCarouselUpload3', array(
+        $wp_customize->add_setting('1902_featuredPost', array(
             'default' => '',
             'transport' => 'refresh'
         ));
@@ -154,22 +157,20 @@
             )
         )));
 
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload1', array(
-            'label' => __('First Image Upload', '1902Custom'),
-            'section' => 'carousel',
-            'settings' => '1902_imageCarouselUpload1'
-        )));
+        // $allChoices=array();//define array
+        // foreach($nodeids as $field => $value) {
+        //     $field_data[$field]=$value;
+        // }
 
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload2', array(
-            'label' => __('Second Image Upload', '1902Custom'),
-            'section' => 'carousel',
-            'settings' => '1902_imageCarouselUpload2'
-        )));
 
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, '1902_imageCarouselUpload3', array(
-            'label' => __('Third Image Upload', '1902Custom'),
-            'section' => 'carousel',
-            'settings' => '1902_imageCarouselUpload3'
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_featuredPost', array(
+            'label' => __('Choose a featured post', '1902Custom'),
+            'section' => 'layout',
+            'settings' => '1902_featuredPost',
+            'type' => 'select',
+            'choices' => array (
+                $allChoices
+            )
         )));
 
     }
