@@ -12,7 +12,9 @@
                                     <?php if(has_post_thumbnail()): ?>
                                         <div class="col-12 text-center mb-3"><?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?></div>
                                     <?php endif; ?>
+                                    <div class=""><p>Written By<?php get_post_meta(get_the_ID(), '1902_postauthor', true); ?></p></div>
                                     <div><?php the_content(); ?></div>
+                                    <div class=""><p>Category: <?php get_post_meta(get_the_ID(), '1902_postcategory', true); ?></p></div>
                                 </div>
 
                             </div>

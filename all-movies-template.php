@@ -40,7 +40,9 @@ Template Post Type: page
             <div class="col-12 col-sm-3">
                 <div class="card">
                     <h4><?php the_title(); ?></h4>
-                    <p>Year Released: <?php echo get_post_meta(get_the_ID(), '1902_year', true) ?></p>
+                    <p>Year Released: <?php echo get_post_meta(get_the_ID(), '1902_year', true); ?></p>
+                    <p><?php echo get_post_meta(get_the_ID(), '1902_runtime', true); ?> mins</p>
+                    <p>Directed By <?php echo get_post_meta(get_the_ID(), '1902_director', true); ?></p>
                 </div>
             </div>
         <?php endwhile; ?>
