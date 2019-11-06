@@ -157,20 +157,22 @@
             )
         )));
 
-        // $allChoices=array();//define array
-        // foreach($nodeids as $field => $value) {
-        //     $field_data[$field]=$value;
-        // }
+        $allPosts = get_posts(array(
+            'numberposts' => -1
+        ));
 
+        $allChoices = array();
+        $allChoices[''] = 'Please choose a featured post';
+        foreach($allPosts as $post){
+            $allChoices[$post->ID] = $post->post_title;
+        }
 
         $wp_customize->add_control(new WP_Customize_Control($wp_customize, '1902_featuredPost', array(
             'label' => __('Choose a featured post', '1902Custom'),
             'section' => 'layout',
             'settings' => '1902_featuredPost',
             'type' => 'select',
-            'choices' => array (
-                $allChoices
-            )
+            'choices' => $allChoices
         )));
 
     }

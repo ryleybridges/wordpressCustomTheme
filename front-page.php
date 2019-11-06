@@ -17,6 +17,29 @@
     </div>
 <?php endif; ?>
 
+<!-- Featured Post code: connects with the customizer setting -->
+<?php if(get_theme_mod('1902_featuredPost')): ?>
+    <?php
+        $featuredPostQuery = new WP_Query(array('p' => get_theme_mod('1902_featuredPost')));
+     ?>
+    <?php if($featuredPostQuery->have_posts() ): ?>
+        <?php while($featuredPostQuery->have_posts()): $featuredPostQuery->the_post(); ?>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Featured Post</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2><?php the_title(); ?></h2>
+                    </div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+<?php endif; ?>
+
 <div class="container">
     <div class="row d-flex justify-content-center">
         <?php if(have_posts()): ?>
