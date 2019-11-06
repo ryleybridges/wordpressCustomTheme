@@ -23,5 +23,9 @@
                 <?php endif; ?>
             </div>
         </div>
+
+        <?php if (comments_open()){
+                comments_template();
+            } ?>
     </div>
 <?php get_footer(); ?>
